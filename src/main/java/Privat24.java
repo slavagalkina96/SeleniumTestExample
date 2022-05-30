@@ -25,6 +25,8 @@ public class Privat24 {
         By firstNameB =  By.xpath("//input[@data-qa-node='firstNamereceiver']");
         By lastNameB =  By.xpath("//input[@data-qa-node='lastNamereceiver']");
         By amount =  By.xpath("//input[@data-qa-node='amount']");
+        By currency =  By.xpath("//button[@data-qa-value='UAH']");
+        By currencyUSD =  By.xpath("//button[@data-qa-value='USD']");
         By span =  By.xpath("//span[@data-qa-node='toggle-comment']");
         By comment =  By.xpath("//textarea[@data-qa-node='comment']");
         By submitBtn =  By.xpath("//button[@type='submit']");
@@ -37,7 +39,9 @@ public class Privat24 {
         driver.findElement(cardNumberB).sendKeys("4004 1591 1544 9003");
         driver.findElement(firstNameB).sendKeys("Yaroslava");
         driver.findElement(lastNameB).sendKeys("Galkina");
-        driver.findElement(amount).sendKeys("330");
+        driver.findElement(amount).sendKeys("10");
+        driver.findElement(currency).click();
+        driver.findElement(currencyUSD).click();
         driver.findElement(span).click();
         driver.findElement(comment).sendKeys("Hello");
         driver.findElement(submitBtn).submit();
