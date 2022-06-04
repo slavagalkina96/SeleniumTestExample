@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +16,8 @@ public class Privat24 {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 
         driver.get("https://next.privat24.ua/money-transfer/card");
+
+        driver.manage().window().maximize();
 
         By cardNumberA =  By.xpath("//input[@data-qa-node='numberdebitSource']");
         By expDate =  By.xpath("//input[@data-qa-node='expiredebitSource']");
@@ -46,6 +49,18 @@ public class Privat24 {
         driver.findElement(comment).sendKeys("Hello");
         driver.findElement(submitBtn).submit();
 
+
+        Assert.assertEquals("Hello", driver.findElement(By.xpath("//div[@data-qa-node='comment']")).getText());
+        Assert.assertEquals("5309 2330 3476 5085", driver.findElement(By.xpath("//span[@data-qa-node='payer-card']")).getText());
+        Assert.assertEquals("YAROSLAVA GALKINA", driver.findElement(By.xpath("//div[@data-qa-node='receiver-name']")).getText());
+        Assert.assertEquals("4004 1591 1544 9003", driver.findElement(By.xpath("//span[@data-qa-node='receiver-card']")).getText());
+        Assert.assertEquals("10 USD", driver.findElement(By.xpath("//div[@data-qa-node='payer-amount']")).getText());
+        Assert.assertEquals("3.15 USD", driver.findElement(By.xpath("//div[@data-qa-node='payer-currency']")).getText());
+        Assert.assertEquals("10 USD", driver.findElement(By.xpath("//div[@data-qa-node='receiver-amount']")).getText());
+        Assert.assertEquals("0 USD", driver.findElement(By.xpath("//div[@data-qa-node='receiver-currency']")).getText());
+        Assert.assertEquals("Разом до списання 13.15 USD", driver.findElement(By.xpath("//div[@data-qa-node='total']")).getText());
+
+        driver.close();
     }
 
 
