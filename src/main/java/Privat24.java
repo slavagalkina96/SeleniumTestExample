@@ -61,6 +61,7 @@ public class Privat24 {
         Assert.assertEquals("Разом до списання 13.15 USD", driver.findElement(By.xpath("//div[@data-qa-node='total']")).getText());
 
         driver.close();
+
     }
 
 
